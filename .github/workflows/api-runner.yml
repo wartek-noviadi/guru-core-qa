@@ -19,7 +19,7 @@ jobs:
      id: run-newman
      uses: anthonyvscode/newman-action@v1
      with:
-      apiKey: ${{ 61656bcc2596d900513f8129-af5b5d60fc2e64aed1c953aa67cd7cc0d4 }}
+      apiKey: ${{ secrets.postmanApiKey }}
       collection: 16431479-2aa7d4a1-e597-496f-b82c-fe1519785ef1
       reporters: cli
      
