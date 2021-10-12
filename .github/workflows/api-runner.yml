@@ -9,7 +9,7 @@ jobs:
    
    strategy:
      matrix:
-       node-version: [10.x, 12.x, 14x]
+       node-version: [10.x]
 
    steps:
    - name: Checkout
@@ -19,7 +19,9 @@ jobs:
      id: run-newman
      uses: anthonyvscode/newman-action@v1
      with:
-      collection: https://www.getpostman.com/collections/72f974fa3b1f2e5bfcfa
+      apiKey: ${{ PMAK-61656bcc2596d900513f8129-af5b5d60fc2e64aed1c953aa67cd7cc0d4 }}
+      collection: 16431479-2aa7d4a1-e597-496f-b82c-fe1519785ef1
       reporters: cli
      
-   - run: echo ${{ steps.run-newman.outputs.summary }}
+   - name: Output summary to console 
+     run: echo ${{ steps.run-newman.outputs.summary }}
