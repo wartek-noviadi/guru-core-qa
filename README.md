@@ -1,0 +1,1 @@
+# guru-core-qa
