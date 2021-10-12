@@ -1,7 +1,4 @@
 # guru-core-qa
 
-# Super Linter
-Check code sanity
-
-# API Test Run
-Run API Sanity Test with newman from postman collection
+Log : add newman api runner (10 Okt 2021 : 17:00)
+   
