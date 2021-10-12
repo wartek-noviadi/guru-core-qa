@@ -1,0 +1,21 @@
+on: 
+  push:
+    branches: [ main ]
+  
+jobs:
+  test:
+
+   runs-on: ubuntu-latest
+
+   steps:
+   - name: Checkout
+     uses: actions/checkout@v1
+
+   - name: Run API Tests
+     id: run-newman
+     uses: anthonyvscode/newman-action@v1
+     with:
+      collection: https://www.getpostman.com/collections/72f974fa3b1f2e5bfcfa
+      reporters: cli
+     
+   - run: echo ${{ steps.run-newman.outputs.summary }}
