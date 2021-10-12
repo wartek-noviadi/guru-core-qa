@@ -22,9 +22,8 @@ jobs:
       - name: Run API Tests
         id: run-newman
         uses: anthonyvscode/newman-action@v1
-          with:
+        with:
         collection: https://www.getpostman.com/collections/72f974fa3b1f2e5bfcfa
         reporters: cli
-
-      - name: Output summary to console
-        run: echo ${{ steps.run-newman.outputs.summary }}
+  name: Output summary to console
+  run: echo ${{ steps.run-newman.outputs.summary }}
