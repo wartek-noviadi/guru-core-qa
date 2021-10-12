@@ -1,7 +1,4 @@
 # guru-core-qa
 
-# Super Linter
-Check code sanity
-
-# API Test Run
-Run API Sanity Test with newman from postman collection
+# Test Log #
+12/10/21 / 12:56 = Add all "Guru Core" User Endpoint minus Create & Delete
