@@ -9,12 +9,9 @@ jobs:
   success-notification:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: exit 0
-      - name: Slack Success
-        if: always()
-        uses: kpritam/slack-job-status-action@v1
-        with:
-          job-status: ${{ job.status }}
-          slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
-          channel: guru-core-qa
+    - name: Notify slack
+      env:
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      uses: pullreminders/slack-action@master
+      with:
+        args: '{\"channel\":\"C02H851AXQF\",\"text\":\"Testing Github Slack Integration on every push\"}'
