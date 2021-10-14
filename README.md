@@ -8,3 +8,5 @@ Tuesday, 21-10-2021
 - Create git workflow job for executing automation API test
 - Integrate Guru Core API automation test on github
    
+Thursday, 23-10-2021
+- ADd more API to monitor from postman
