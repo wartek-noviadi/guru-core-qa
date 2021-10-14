@@ -19,7 +19,7 @@ jobs:
      id: run-newman
      uses: anthonyvscode/newman-action@v1
      with:
-      collection: https://www.getpostman.com/collections/72f974fa3b1f2e5bfcfa
+      collection: https://www.getpostman.com/collections/799b006d8ea86e47dab5
       reporters: cli
      
    - name: Output summary to console 
