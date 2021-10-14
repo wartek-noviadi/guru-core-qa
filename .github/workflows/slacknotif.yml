@@ -20,9 +20,24 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - name: Notify slack
+    - name: Run tests
+    # ... your test step here
+    - name: Notify slack success
+      if: success()
       env:
-        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-      uses: pullreminders/slack-action@master
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATIONS_BOT_TOKEN }}
+      uses: voxmedia/github-action-slack-notify-build@v1
+        with:
+      channel: guru-core-qa
+      status: SUCCESS
+      color: good
+
+    - name: Notify slack fail
+      if: failure()
+      env:
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATIONS_BOT_TOKEN }}
+      uses: voxmedia/github-action-slack-notify-build@v1
       with:
-        args: '{\"channel\":\"C02H851AXQF\",\"text\":\"Test Github Slack Integration\"}'
+        channel: guru-core-qa
+    status: FAILED
+    color: danger
