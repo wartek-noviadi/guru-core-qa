@@ -15,5 +15,4 @@ jobs:
         with: 
           template: steps1
           description: Guru Core Test
-          title: optional Title
-          status: ${{ toJSON(steps) }}
+          status: ${{ job.status }}
