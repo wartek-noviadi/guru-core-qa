@@ -1,32 +1,19 @@
 name: Slack Notify
 
 on:
-  push:
+  pull:
     branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      REPOSITORY_URL: https://github.com/wartek-noviadi/guru-core-qa
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
-      - uses: act10ns/slack@v1
-        with:
-          status: starting
-          channel: '#guru-core-qa'
-        if: always()
-        
-      - name: Checkout
-        uses: actions/checkout@v2
-        
-      - name: Variables
-        id: vars
-        run: echo "::set-output name=SHORT_COMMIT_ID::$(git rev-parse --short HEAD)"
-      
-      - uses: act10ns/slack@v1
-        with:
-          status: ${{ job.status }}
-          steps: ${{ toJson(steps) }}
-          channel: '#workflows'
-        if: always()
+      - name: Send Slack Notification
+        uses: keithalpichi/slack-action@0.0.6
+        with: 
+          template: steps1
+          description: Guru Core Test
+          title: optional Title
+          status: ${{ toJSON(steps) }}
